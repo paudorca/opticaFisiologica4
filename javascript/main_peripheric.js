@@ -6,6 +6,7 @@
       const white_factor = 100; 
       const green_factor = 71.52; 
       const blue_factor = 7.22; 
+      
 
       window.addEventListener('load', (event) => {
         draw2(); 
