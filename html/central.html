@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/main.css" /> 
+    <script src="https://kit.fontawesome.com/0345f4b05a.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js"></script>
+    <title>Application 1</title>
+    <script>
+      const red = '#FF0000';
+      const white = '#FFFFFF'; 
+      const green = '#008000'; 
+      const blue = '#0000FF'; 
+
+      const red_factor = 21.26; 
+      const white_factor = 100; 
+      const green_factor = 71.52; 
+      const blue_factor = 7.22; 
+
+      const color = localStorage.getItem('color'); 
+
+      function draw() {
+        var can1 = document.getElementById("circulo");
+        var ctx1 = can1.getContext("2d");
+        let radius = document.getElementById('myRange2');
+        let brillo = document.getElementById('myRange1'); 
+        let luz = document.getElementById('textInput1').value; 
+
+        let brillo2 = (brillo.value/255) * 100;
+
+
+        var aux = 100/(localStorage.getItem('conversio')*2); 
+
+        if (radius.value > 21) { return; }
+  
+          ctx1.clearRect(0, 0, 500, 200);
+          ctx1.beginPath();
+          ctx1.arc(250, 100, parseInt(radius.value)*aux, 0, 2 * Math.PI);
+          ctx1.fillStyle = color;
+          ctx1.strokeStyle = color;
+          ctx1.filter = `brightness(${brillo2}%)`;
+          console.log("brillo es igual a = " + brillo2); 
+          ctx1.fill();
+      }
+
+function updateTextInput1(val) {
+    document.getElementById('textInput1').value=val;
+    console.log(val);  
+    var ndr = parseFloat(val)/255.0; 
+    var aux = 0.95*ndr + 0.05; 
+    if (color == 'blue') {
+      var result = blue_factor*Math.pow(aux,2.40); 
+    }
+    else if (color == 'red') {
+      var result = red_factor*Math.pow(aux,2.40); 
+    }
+    else if (color == 'green') {
+      var result = green_factor*Math.pow(aux,2.40); 
+    }
+    else {
+      var result = white_factor*Math.pow(aux,2.40); 
+    }
+    let luminancia = document.getElementById('luminancia');
+    luminancia.value = result.toFixed(2);
+}
+
+function updateTextInput2(val) {
+  document.getElementById('textInput2').value=val; 
+}
+    </script>
+</head>
+<body class="">
+  <canvas id = "circulo" height = "200" width = "500">
+  </canvas>
+    <div style="height: 400px;" class="d-flex align-items-end">
+      <div class="container">
+        <div class="row align-items-start">
+          <div class="col d-flex justify-content-center align-items-center p-2">
+            <label>Digital levels</label>
+            <input type="range" min="0" max="255" value="0" class="slider w-75 m-1" id="myRange1" 
+            oninput="draw();updateTextInput1(this.value);">
+            <input type="text" id="textInput1" value="0" class="m-1">
+          </div>
+          <div class="col d-flex justify-content-center align-items-center p-2">
+            <label>Spot size</label>
+            <input type="range" min="1" max="20" value="10" class="slider w-75 m-1" id="myRange2"
+            oninput="draw();updateTextInput2(this.value);">
+            <input type="text" id="textInput2" value="10" class="m-1">
+          </div>
+        </div>
+        <div class="row align-items-center">
+          <div class="col">
+            <p>Luminance L(cd/m2)</p>
+            <input type="text" id="luminancia" value="0.08">
+          </div>
+          <div class="col">
+          </div>
+        </div>
+      </div>
+    </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
