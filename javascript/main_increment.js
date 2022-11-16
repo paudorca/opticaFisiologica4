@@ -22,7 +22,7 @@ function circulo(val) {
     ctx.arc(250, 200, 20*aux, 0,2*Math.PI,true); 
     ctx.fill(); 
     ctx.stroke();
-
+    
   }
 
 function circulo_inferior(val) {

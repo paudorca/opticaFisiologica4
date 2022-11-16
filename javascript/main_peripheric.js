@@ -16,6 +16,8 @@
 
       let aux = 100/(localStorage.getItem('conversio')*2);
 
+      console.log('aux es' + 100/(aux*2))
+
       function draw() {
       var can1 = document.getElementById("circulo");
       var ctx1 = can1.getContext("2d");
@@ -44,7 +46,7 @@
 
           ctx2.clearRect(0, 0, 500, 200);
           ctx2.beginPath();
-          ctx2.arc(250,195-distancia.value*aux, parseInt(radius.value)*aux, 0, 2 * Math.PI);
+          ctx2.arc(250,10+((distancia.value -25)*aux)*2,parseInt(radius.value)*aux, 0, 2 * Math.PI);
           ctx2.fillStyle = red;
           ctx2.strokeStyle = red;
           ctx2.fill(); 
