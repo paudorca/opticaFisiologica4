@@ -6,7 +6,6 @@
       const white_factor = 100; 
       const green_factor = 71.52; 
       const blue_factor = 7.22; 
-      
 
       window.addEventListener('load', (event) => {
         draw2(); 
@@ -46,7 +45,7 @@
 
           ctx2.clearRect(0, 0, 500, 200);
           ctx2.beginPath();
-          ctx2.arc(250,10+((distancia.value -25)*aux)*2,parseInt(radius.value)*aux, 0, 2 * Math.PI);
+          ctx2.arc(250,11+((distancia.value -25)*aux)*2,parseInt(radius.value)*aux, 0, 2 * Math.PI);
           ctx2.fillStyle = red;
           ctx2.strokeStyle = red;
           ctx2.fill(); 
