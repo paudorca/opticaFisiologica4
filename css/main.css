@@ -17,16 +17,20 @@
   display: inline-block;
 }
 
+#distance {
+  width: 105px;
+}
+
+.medida {
+  width: 105px;
+}
+
 #rangos {
   background-color: black;
 }
 
-#textInput1 {
+.textInput1 {
   width: 8%;
-}
-
-#textInput2 {
-  width: 7%;
 }
 
 #luminancia {
@@ -45,12 +49,6 @@ label {
     color: white;
 }
 
-.slidecontainer {
-    width: 50%;
-    height: 40px; 
-    position: relative; 
-    margin-top: 10%;
-}
   
 .slider {
     -webkit-appearance: none;  /* Override default CSS styles */

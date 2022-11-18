@@ -23,35 +23,35 @@
             <label>Digital levels</label>
           </div>
           <div class="col d-flex justify-content-center align-items-center p-2">
-            <label>Spot size</label>
+            <label>Spot size (mm)</label>
             <input type="range" min="1" max="20" value="10" class="slider w-75 m-1" id="myRange2"
             oninput="draw();updateTextInput2(this.value);">
-            <input type="text" id="textInput2" value="10" class="m-1">
+            <input type="text" id="textInput2" value="10" class="m-1 textInput1">
           </div>
         </div>
-        <div class="row align-items-center">
+        <div class="row align-items-center justify-content-between">
           <div class="col d-flex justify-content-left align-items-center p-2">
             <input type="range" min="0" max="255" value="0" class="slider w-75 m-1" id="myRange1" 
             oninput="draw();updateTextInput1(this.value);">
-            <input type="text" id="textInput1" value="0" class="m-1">
+            <input type="text" id="textInput1" value="0" class="m-1 textInput1">
           </div>
           <div class="col d-flex justify-content-center align-items-center p-2">
-            <label>Peripheric<br>Spot size</label>
+            <label>Peripheric<br>Spot size (mm)</label>
             <input type="range" min="1" max="5" value="3" class="slider w-75 m-1" id="myRange3"
             oninput="draw2();updateTextInput3(this.value);">
-            <input type="text" id="textInput3" value="3" class="m-1">
+            <input type="text" id="textInput3" value="3" class="m-1 textInput1">
           </div>
         </div>
-        <div class="row align-items-start">
+        <div class="row align-items-start justify-content-between">
           <div class="col d-flex justify-content-left align-items-center p-2">
             <label>Luminance L(cd/m2)</label>
-            <input type="text" id="luminancia" value="0" class="m-1">
+            <input type="text" id="luminancia" value="0" class="m-1 textInput1">
           </div>
-          <div class="col d-flex justify-content-center align-items-center p-2">
-            <label>Distance</label>
-            <input type="range" min="25" max="55" value="25" class="slider w-75 m-1" id="myRange4"
+          <div class="col d-flex justify-content-left align-items-center p-2">
+            <label id="distance">Distance <br>(mm)</label>
+            <input type="range" min="25" max="55" value="25" class="slider w-75 m-1 inputText" id="myRange4"
             oninput="draw2();updateTextInput4(this.value);">
-            <input type="text" id="textInput4" value="60" class="m-1">
+            <input type="text" id="textInput4" value="25" class="m-1 textInput1">
           </div>
         </div>
       </div>
